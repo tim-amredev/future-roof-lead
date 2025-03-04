@@ -8,11 +8,11 @@
   {% seo %}
   
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#0ea5e9">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ site.baseurl }}/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ site.baseurl }}/assets/favicon/safari-pinned-tab.svg" color="#0ea5e9">
   <meta name="msapplication-TileColor" content="#0ea5e9">
   <meta name="theme-color" content="#0f172a">
   
@@ -20,13 +20,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ site.baseurl }}/feed.xml">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}{{ site.baseurl }}",
+    "logo": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "{{ site.phone }}",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "sameAs": [
+      "{{ site.social.facebook | prepend: 'https://facebook.com/' }}",
+      "{{ site.social.twitter | prepend: 'https://twitter.com/' }}",
+      "{{ site.social.instagram | prepend: 'https://instagram.com/' }}",
+      "{{ site.social.linkedin | prepend: 'https://linkedin.com/company/' }}"
+    ]
+  }
+  </script>
 </head>
 <body class="min-h-screen bg-background text-foreground antialiased">
   <div class="relative">
@@ -34,18 +57,17 @@
     <div class="fixed inset-0 bg-gradient-to-br from-background via-background to-primary/5 -z-10"></div>
 
     {% include header.html %}
-    
-    <main class="container mx-auto px-4 py-12">
-      {{ content }}
-    </main>
-    
+    <main>{{ content }}</main>
     {% include footer.html %}
+    {% include netlify-forms.html %}
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
   {% if page.js %}
-  <script src="assets/js/{{ page.js }}.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/{{ page.js }}.js"></script>
   {% endif %}
+  
+  <!-- Google Analytics or other analytics code can go here -->
 </body>
 </html>
 
