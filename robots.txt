@@ -1,0 +1,9 @@
+---
+layout: null
+---
+User-agent: *
+Disallow: /thank-you/
+Disallow: /quote/success/
+
+Sitemap: {{ site.url }}/sitemap.xml
+

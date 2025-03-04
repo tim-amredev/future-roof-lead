@@ -1,0 +1,77 @@
+# Site settings
+title: Instant Roofing Prices
+tagline: Advanced Roofing Solutions
+description: Experience the future of roofing with instant, AI-powered quotes for roof installation, repair, and replacement. Professional roofing services with cutting-edge technology.
+url: "https://instantroofing.com" # Production URL
+baseurl: "" # Subpath, if needed
+lang: en
+timezone: America/New_York
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+sass:
+  style: compressed
+  sass_dir: _sass
+  load_paths:
+    - _sass
+    - node_modules
+include:
+  - _pages
+  - .htaccess
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - README.md
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - CNAME
+  - LICENSE
+  - .git
+  - scripts
+  - "*.tsx"
+  - "*.ts"
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Front matter defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      image: /assets/images/og-default.jpg # Default OG image
+  - scope:
+      path: "_pages"
+    values:
+      permalink: /:basename/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SEO settings
+twitter:
+  username: instantroofing
+  card: summary_large_image
+logo: /assets/images/logo.png
+social:
+  name: Instant Roofing
+  links:
+    - https://twitter.com/instantroofing
+    - https://facebook.com/instantroofing
+    - https://instagram.com/instantroofing
+    - https://linkedin.com/company/instant-roofing
+
