@@ -13,54 +13,11 @@
           {{ site.phone }}
         </a>
 
-        <a href="{{ site.baseurl }}/quote" class="neon-button relative px-6 py-2 rounded-lg text-primary hover:text-primary-foreground transition-colors">
+        <a href="{{ site.baseurl }}/quote/" class="neon-button relative px-6 py-2 rounded-lg text-primary hover:text-primary-foreground transition-colors">
           <span class="relative z-10 font-medium">Get Quote</span>
         </a>
       </div>
     </div>
   </div>
-  
-  <!-- Structured data for local business -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    "name": "{{ site.title }}",
-    "image": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}",
-    "url": "{{ site.url }}{{ site.baseurl }}",
-    "telephone": "{{ site.phone }}",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "123 Innovation Way",
-      "addressLocality": "Future City",
-      "addressRegion": "FC",
-      "postalCode": "90210",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 37.7749,
-      "longitude": -122.4194
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "17:00"
-    },
-    "sameAs": [
-      "{{ site.social.facebook | prepend: 'https://facebook.com/' }}",
-      "{{ site.social.twitter | prepend: 'https://twitter.com/' }}",
-      "{{ site.social.instagram | prepend: 'https://instagram.com/' }}",
-      "{{ site.social.linkedin | prepend: 'https://linkedin.com/company/' }}"
-    ]
-  }
-  </script>
 </header>
 
