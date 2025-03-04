@@ -11,6 +11,7 @@ timezone: America/New_York
 markdown: kramdown
 permalink: pretty
 sass:
+  sass_dir: _sass
   style: compressed
   sass_dir: _sass
   load_paths:
