@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add event listeners
     if (nextButton) {
       nextButton.addEventListener("click", nextStep)
+      console.log("Next button event listener added")
     }
 
     if (prevButton) {
@@ -94,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showStep(step) {
+    console.log("Showing step:", step)
     formSteps.forEach((formStep) => {
       formStep.style.display = "none"
     })
@@ -137,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function nextStep() {
+    console.log("Next step clicked, current step:", currentStep)
     if (currentStep < totalSteps && validateStep(currentStep)) {
       if (!completedSteps.includes(currentStep)) {
         completedSteps.push(currentStep)
