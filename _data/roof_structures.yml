@@ -1,0 +1,29 @@
+# Roof structure type options
+- value: gabled
+  label: Gabled
+  image: /assets/images/roof-types/gabled.jpg
+- value: hip
+  label: Hip
+  image: /assets/images/roof-types/hip.jpg
+- value: flat
+  label: Flat/low slope
+  image: /assets/images/roof-types/flat.jpg
+- value: mansard
+  label: Mansard
+  image: /assets/images/roof-types/mansard.jpg
+- value: gambrel
+  label: Gambrel
+  image: /assets/images/roof-types/gambrel.jpg
+- value: aframe
+  label: A-frame
+  image: /assets/images/roof-types/aframe.jpg
+- value: shed
+  label: Shed
+  image: /assets/images/roof-types/shed.jpg
+- value: combination
+  label: Combination of styles
+  image: /assets/images/roof-types/combination.jpg
+- value: unsure
+  label: Unsure
+  image: /assets/images/roof-types/unsure.jpg
+

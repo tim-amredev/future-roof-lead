@@ -1,0 +1,13 @@
+// Progress styles
+.progress-step {
+  @include transition;
+  
+  &.completed {
+    transform: scale(1.1);
+  }
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+

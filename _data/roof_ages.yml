@@ -1,0 +1,16 @@
+# Current roof age options
+- value: less_than_5
+  label: Less than 5 years
+- value: 5_to_10
+  label: 5-10 years
+- value: 11_to_15
+  label: 11-15 years
+- value: 16_to_20
+  label: 16-20 years
+- value: 21_to_30
+  label: 21-30 years
+- value: more_than_30
+  label: More than 30 years
+- value: unsure
+  label: Unsure
+

@@ -1,0 +1,22 @@
+# Additional roofing features options
+- value: insulation
+  label: Improved insulation
+- value: ventilation
+  label: Enhanced ventilation
+- value: skylights
+  label: Skylights or roof windows
+- value: solar
+  label: Solar panels
+- value: rainwater
+  label: Rainwater collection system
+- value: snow_guards
+  label: Snow guards
+- value: gutters
+  label: Improved gutters and downspouts
+- value: chimney
+  label: Chimney repair/replacement
+- value: other
+  label: Other
+- value: none
+  label: None
+

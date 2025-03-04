@@ -1,0 +1,67 @@
+// Animations
+@keyframes borderGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glitch {
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+@keyframes neonRotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+// Animation classes
+.animated-border {
+  position: relative;
+  background: linear-gradient(
+    60deg,
+    color(primary),
+    color(secondary),
+    color(accent)
+  );
+  background-size: 300% 300%;
+  animation: borderGradient 4s ease infinite;
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.glitch {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+

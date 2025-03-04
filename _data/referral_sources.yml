@@ -1,0 +1,16 @@
+# Referral source options
+- value: online_search
+  label: Online search
+- value: social_media
+  label: Social media
+- value: referral
+  label: Referral from friend/family
+- value: saw_work
+  label: Saw your work in my neighborhood
+- value: home_improvement
+  label: Home improvement store
+- value: local_ad
+  label: Local advertisement
+- value: other
+  label: Other
+

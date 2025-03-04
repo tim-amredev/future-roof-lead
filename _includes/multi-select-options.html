@@ -1,0 +1,14 @@
+<div class="multi-select grid grid-cols-1 md:grid-cols-2 gap-3">
+  {% for option in options %}
+  <label class="group relative flex items-center card-future p-4 rounded-xl cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-primary/50 hover:ring-offset-2 hover:ring-offset-background">
+    <input type="checkbox" name="{{ name }}" value="{{ option }}" class="peer sr-only">
+    <div class="w-6 h-6 mr-3 rounded border border-white/10 flex items-center justify-center transition-colors peer-checked:bg-primary peer-checked:border-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon w-4 h-4 text-background opacity-0 transition-opacity peer-checked:opacity-100">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <span class="text-foreground/80 group-hover:text-foreground transition-colors">{{ option }}</span>
+  </label>
+  {% endfor %}
+</div>
+

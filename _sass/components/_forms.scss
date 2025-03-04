@@ -1,0 +1,147 @@
+// Form styles
+.form-step {
+  margin-bottom: $spacing-xlarge;
+  
+  .form-heading {
+    @include flex(row, flex-start, center);
+    gap: $spacing-small;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: $spacing-xlarge;
+    
+    svg {
+      color: #8b5cf6; // violet-600
+    }
+  }
+  
+  .form-group {
+    margin-bottom: $spacing-large;
+    
+    label {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: $spacing-medium * 0.75;
+    }
+    
+    .radio-grid {
+      @include grid(1, $spacing-medium * 0.75);
+      
+      @include respond-to('medium') {
+        @include grid(2, $spacing-medium * 0.75);
+      }
+      
+      &.grid-3 {
+        @include respond-to('medium') {
+          @include grid(3, $spacing-medium * 0.75);
+        }
+      }
+    }
+    
+    .radio-option {
+      @include flex(row, flex-start, center);
+      padding: $spacing-medium;
+      border: 2px solid transparent;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      @include transition;
+      
+      &:hover {
+        border-color: color(primary);
+        background-color: color-alpha(primary, 0.05);
+      }
+      
+      input[type="radio"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-right: $spacing-small;
+      }
+    }
+    
+    .error-message {
+      color: #ef4444; // red-500
+      margin-top: $spacing-small;
+      display: none;
+    }
+  }
+  
+  .form-actions {
+    @include flex(row, space-between, center);
+    margin-top: $spacing-xlarge;
+    
+    .prev-button {
+      @include flex(row, center, center);
+      gap: $spacing-small;
+      padding: $spacing-medium * 0.75 $spacing-large;
+      border-radius: 0.75rem;
+      color: color-alpha(foreground, 0.8);
+      
+      &:hover {
+        color: color(foreground);
+        
+        svg {
+          transform: translateX(-0.25rem);
+        }
+      }
+      
+      svg {
+        @include transition(transform);
+      }
+    }
+    
+    .next-button, .submit-button {
+      @extend .neon-button;
+      padding: $spacing-medium * 0.75 $spacing-large;
+      border-radius: 0.75rem;
+      
+      span {
+        @include flex(row, center, center);
+        gap: $spacing-small;
+        position: relative;
+        z-index: 10;
+        font-weight: 500;
+      }
+      
+      svg {
+        @include transition(transform);
+      }
+      
+      &:hover {
+        svg {
+          transform: translateX(0.25rem);
+        }
+      }
+    }
+  }
+}
+
+// Form inputs
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: $spacing-medium * 0.75;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: color(foreground);
+  
+  &:focus {
+    outline: none;
+    border-color: color(primary);
+    box-shadow: 0 0 0 2px color-alpha(primary, 0.2);
+  }
+  
+  &::placeholder {
+    color: color-alpha(foreground, 0.5);
+  }
+}
+
+textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+

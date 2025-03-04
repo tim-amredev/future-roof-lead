@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">{{ page.title }}</h1>
+    
+    <form id="quote-form" name="roofing-quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/quote/success">
+      <!-- Hidden fields for Netlify -->
+      <input type="hidden" name="form-name" value="roofing-quote">
+      <input type="hidden" name="_to" value="tim@americanremodeling.net">
+      <div class="hidden">
+        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+      </div>
+      
+      {{ content }}
+    </form>
+  </div>
+</div>
+
+<script>
+  // Override the form submission to use our custom handler
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('quote-form');
+    if (form) {
+      const originalSubmitHandler = form.onsubmit;
+      form.onsubmit = function(e) {
+        // Let our custom handler in quote-form.js handle it
+        return false;
+      };
+    }
+  });
+</script>
+

@@ -1,0 +1,40 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} | {{ site.tagline }}{% endif %}</title>
+  
+  <!-- Meta tags -->
+  {% seo %}
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-touch-icon.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon/favicon-16x16.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/favicon/site.webmanifest' | relative_url }}">
+  
+  <!-- JavaScript -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/theme-switcher.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/toast.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/dialog.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/tabs.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/dropdown.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/accordion.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/form-validation.js' | relative_url }}" defer></script>
+  
+  {% if page.url contains '/quote/' %}
+  <script src="{{ '/assets/js/quote-form.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/material-selector.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/multi-select.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/progress-ring.js' | relative_url }}" defer></script>
+  {% endif %}
+  
+  {% if page.url contains '/calculator/' %}
+  <script src="{{ '/assets/js/calculator.js' | relative_url }}" defer></script>
+  {% endif %}
+</head>
+

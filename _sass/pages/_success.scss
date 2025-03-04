@@ -1,0 +1,105 @@
+// Success and thank you pages
+.success-page {
+  min-height: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  position: relative;
+  
+  @include respond-to('medium') {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  
+  .success-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom right, color-alpha(primary, 0.1), transparent, color-alpha(accent, 0.1));
+  }
+  
+  .success-card {
+    @extend .card-future;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    
+    @include respond-to('medium') {
+      padding: 3rem;
+    }
+    
+    .success-icon {
+      width: 5rem;
+      height: 5rem;
+      background-image: linear-gradient(to right, #10b981, #14b8a6); // emerald-500 to teal-500
+      border-radius: 1rem;
+      @include flex(row, center, center);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2rem;
+      @extend .floating;
+      
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: white;
+      }
+    }
+    
+    .success-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      @extend .glow-text;
+      
+      @include respond-to('medium') {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .success-description {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: color-alpha(foreground, 0.8);
+    }
+    
+    .info-cards {
+      margin-bottom: 2rem;
+      
+      .info-card {
+        @extend .card-future;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        background-color: color-alpha(foreground, 0.05);
+        margin-bottom: 1.5rem;
+        
+        .card-title {
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: transparent;
+          background-clip: text;
+          background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+        }
+        
+        .card-text {
+          color: color-alpha(foreground, 0.7);
+        }
+      }
+    }
+    
+    .home-button {
+      @extend .neon-button;
+      @include flex(row, center, center);
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      
+      span {
+        position: relative;
+        z-index: 10;
+        @include flex(row, center, center);
+        gap: 0.5rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+

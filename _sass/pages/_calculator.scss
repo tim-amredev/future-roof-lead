@@ -1,0 +1,252 @@
+// Calculator page styles
+.calculator-page {
+  min-height: 100vh;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  position: relative;
+  
+  @include respond-to('medium') {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .calculator-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom right, color-alpha(primary, 0.1), transparent, color-alpha(accent, 0.1));
+  }
+  
+  .calculator-header {
+    text-align: center;
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+    
+    .calculator-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background-color: color-alpha(primary, 0.1);
+      @include flex(row, center, center);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5rem;
+      
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: color(primary);
+      }
+    }
+    
+    .calculator-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: transparent;
+      background-clip: text;
+      background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+      
+      @include respond-to('medium') {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .calculator-description {
+      font-size: 1.125rem;
+      color: color-alpha(foreground, 0.8);
+    }
+  }
+  
+  .calculator-container {
+    @extend .card-future;
+    padding: 1.5rem;
+    
+    @include respond-to('medium') {
+      padding: 2rem;
+    }
+    
+    .calculator-grid {
+      @include grid(1, 2rem);
+      
+      @include respond-to('medium') {
+        @include grid(2, 2rem);
+      }
+    }
+    
+    .calculator-form {
+      .form-group {
+        margin-bottom: 1.5rem;
+        
+        label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+        
+        .helper-text {
+          font-size: 0.875rem;
+          color: color-alpha(foreground, 0.6);
+          margin-top: 0.25rem;
+        }
+      }
+      
+      .calculate-button {
+        width: 100%;
+        background-color: color(primary);
+        color: color(primary-foreground);
+        font-weight: 600;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        @include transition;
+        
+        &:hover {
+          background-color: color-alpha(primary, 0.9);
+        }
+        
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        
+        svg {
+          display: inline-block;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    
+    .results-container {
+      .empty-state {
+        height: 100%;
+        @include flex(row, center, center);
+        
+        .empty-content {
+          text-align: center;
+          color: color-alpha(foreground, 0.6);
+          
+          svg {
+            width: 3rem;
+            height: 3rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+          }
+        }
+      }
+      
+      .results {
+        .cost-breakdown {
+          @extend .card-future;
+          padding: 1.5rem;
+          border-radius: 0.75rem;
+          margin-bottom: 1.5rem;
+          
+          .breakdown-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+          }
+          
+          .breakdown-item {
+            @include flex(row, space-between, center);
+            margin-bottom: 0.75rem;
+            
+            .item-label {
+              color: color-alpha(foreground, 0.7);
+            }
+            
+            .item-value {
+              font-weight: 600;
+            }
+          }
+          
+          .breakdown-total {
+            border-top: 1px solid color-alpha(foreground, 0.1);
+            padding-top: 0.75rem;
+            
+            .total-row {
+              @include flex(row, space-between, center);
+              
+              .total-label {
+                font-weight: 600;
+              }
+              
+              .total-value {
+                font-weight: 700;
+                font-size: 1.25rem;
+                color: transparent;
+                background-clip: text;
+                background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+              }
+            }
+          }
+        }
+        
+        .additional-info {
+          .info-card {
+            @extend .card-future;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            
+            .info-row {
+              @include flex(row, space-between, center);
+              
+              .info-label {
+                color: color-alpha(foreground, 0.7);
+              }
+              
+              .info-value {
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        
+        .quote-cta {
+          padding-top: 1.5rem;
+          
+          .cta-button {
+            @extend .neon-button;
+            width: 100%;
+            @include flex(row, center, center);
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            
+            span {
+              position: relative;
+              z-index: 10;
+              @include flex(row, center, center);
+              gap: 0.5rem;
+              font-weight: 600;
+            }
+            
+            svg {
+              @include transition(transform);
+            }
+            
+            &:hover {
+              svg {
+                transform: translateX(0.25rem);
+              }
+            }
+          }
+          
+          .cta-helper {
+            font-size: 0.875rem;
+            color: color-alpha(foreground, 0.6);
+            text-align: center;
+            margin-top: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+

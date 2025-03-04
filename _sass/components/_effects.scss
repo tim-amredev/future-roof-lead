@@ -1,0 +1,50 @@
+// Effect styles
+.glow {
+  box-shadow: 0 0 20px color-alpha(primary, 0.2), 0 0 40px color-alpha(primary, 0.1);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px color-alpha(primary, 0.5);
+}
+
+// Background gradients
+.bg-primary\/10 {
+  background-color: color-alpha(primary, 0.1);
+}
+
+.bg-secondary\/10 {
+  background-color: color-alpha(secondary, 0.1);
+}
+
+.bg-accent\/10 {
+  background-color: color-alpha(accent, 0.1);
+}
+
+.from-primary\/10 {
+  --tw-gradient-from: color-alpha(primary, 0.1);
+}
+
+.to-accent\/10 {
+  --tw-gradient-to: color-alpha(accent, 0.1);
+}
+
+.from-primary\/20 {
+  --tw-gradient-from: color-alpha(primary, 0.2);
+}
+
+.to-accent\/20 {
+  --tw-gradient-to: color-alpha(accent, 0.2);
+}
+
+.from-background {
+  --tw-gradient-from: color(background);
+}
+
+.via-background {
+  --tw-gradient-stops: var(--tw-gradient-from), color(background), var(--tw-gradient-to, color-alpha(background, 0));
+}
+
+.to-primary\/5 {
+  --tw-gradient-to: color-alpha(primary, 0.05);
+}
+

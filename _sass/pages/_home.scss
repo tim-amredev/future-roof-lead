@@ -1,0 +1,158 @@
+// Home page styles
+.hero-section {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+  overflow: hidden;
+  
+  @include respond-to('medium') {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom right, color-alpha(primary, 0.1), transparent, color-alpha(accent, 0.1));
+  }
+  
+  .hero-content {
+    position: relative;
+    max-width: 48rem;
+    
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      @extend .glow-text;
+      color: transparent;
+      background-clip: text;
+      background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+      
+      @include respond-to('medium') {
+        font-size: 3.75rem;
+      }
+      
+      @include respond-to('large') {
+        font-size: 4.5rem;
+      }
+    }
+    
+    .hero-description {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: color-alpha(foreground, 0.8);
+      
+      @include respond-to('medium') {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .hero-actions {
+      @include flex(column, flex-start, stretch);
+      gap: 1rem;
+      
+      @include respond-to('small') {
+        @include flex(row, flex-start, center);
+      }
+    }
+  }
+}
+
+.features-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    @extend .glow-text;
+    
+    @include respond-to('medium') {
+      font-size: 2.25rem;
+    }
+  }
+  
+  .features-grid {
+    @include grid(1, 2rem);
+    
+    @include respond-to('medium') {
+      @include grid(3, 2rem);
+    }
+    
+    .feature-card {
+      @extend .card-future;
+      padding: 2rem;
+      border-radius: 1rem;
+      
+      .feature-icon {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 0.75rem;
+        @include flex(row, center, center);
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+      
+      .feature-description {
+        color: color-alpha(foreground, 0.7);
+      }
+    }
+  }
+}
+
+.cta-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+  
+  .cta-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom right, color-alpha(primary, 0.2), transparent, color-alpha(accent, 0.2));
+  }
+  
+  .cta-content {
+    position: relative;
+    text-align: center;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .cta-icon {
+      width: 3rem;
+      height: 3rem;
+      color: color(primary);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      @extend .glow-text;
+      
+      @include respond-to('medium') {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .cta-description {
+      font-size: 1.25rem;
+      color: color-alpha(foreground, 0.8);
+      margin-bottom: 2rem;
+    }
+  }
+}
+

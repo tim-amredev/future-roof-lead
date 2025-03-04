@@ -1,0 +1,16 @@
+# Reasons for roof remodel
+- value: repair_damage
+  label: Repair damage
+- value: replace_aging
+  label: Replace aging roof
+- value: improve_appearance
+  label: Improve home appearance
+- value: increase_efficiency
+  label: Increase energy efficiency
+- value: increase_value
+  label: Increase home value for sale
+- value: address_leaking
+  label: Address leaking issues
+- value: other
+  label: Other
+

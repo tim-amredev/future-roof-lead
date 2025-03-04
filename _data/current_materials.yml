@@ -1,0 +1,26 @@
+# Current roofing material options
+- value: asphalt
+  label: Asphalt shingles
+  image: /assets/images/materials/asphalt.jpg
+- value: wood
+  label: Wood shingles or shakes
+  image: /assets/images/materials/wood.jpg
+- value: metal
+  label: Metal roofing
+  image: /assets/images/materials/metal.jpg
+- value: tile
+  label: Clay or concrete tiles
+  image: /assets/images/materials/tile.jpg
+- value: slate
+  label: Slate
+  image: /assets/images/materials/slate.jpg
+- value: flat
+  label: Flat roof/built-up roofing
+  image: /assets/images/materials/flat.jpg
+- value: other
+  label: Other
+  image: /assets/images/materials/other.jpg
+- value: unsure
+  label: Unsure
+  image: /assets/images/materials/unsure.jpg
+

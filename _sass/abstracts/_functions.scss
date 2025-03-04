@@ -1,0 +1,28 @@
+// Function to convert px to rem
+@function rem($pixels, $context: 16) {
+  @return ($pixels / $context) * 1rem;
+}
+
+// Function to get color from HSL variables
+@function color($color-name) {
+  @return hsl(var(--#{$color-name}));
+}
+
+// Function to get color with opacity
+@function color-alpha($color-name, $opacity) {
+  @return hsla(var(--#{$color-name}), $opacity);
+}
+
+// Function to get spacing
+@function spacing($multiplier: 1) {
+  @return $spacing-unit * $multiplier;
+}
+
+// Function to get z-index
+@function z-index($key) {
+  @if map-has-key($z-indices, $key) {
+    @return map-get($z-indices, $key);
+  }
+  @return 0;
+}
+

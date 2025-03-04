@@ -1,0 +1,57 @@
+// Button styles
+.neon-button {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  color: color(primary);
+  
+  &:hover {
+    color: color(primary-foreground);
+  }
+  
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: color(primary);
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: linear-gradient(color(primary), color(primary)),
+      linear-gradient(color(secondary), color(secondary)),
+      linear-gradient(color(accent), color(accent)),
+      linear-gradient(color(primary), color(primary));
+    animation: neonRotate 4s linear infinite;
+  }
+  
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: color(background);
+    border-radius: calc(var(--radius) - 2px);
+  }
+  
+  .group:hover & {
+    .group-hover\:translate-x-1 {
+      transform: translateX(0.25rem);
+    }
+    
+    .group-hover\:-translate-x-1 {
+      transform: translateX(-0.25rem);
+    }
+  }
+}
+
+.glass {
+  @include glass;
+}
+

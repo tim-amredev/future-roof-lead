@@ -1,0 +1,24 @@
+# Potential roof issues options
+- value: leaks
+  label: Leaks
+- value: missing_damaged
+  label: Missing/damaged shingles
+- value: sagging
+  label: Sagging areas
+- value: poor_drainage
+  label: Poor drainage
+- value: ice_dams
+  label: Ice dams in winter
+- value: ventilation
+  label: Ventilation issues
+- value: moisture
+  label: Moisture in attic
+- value: mold
+  label: Mold or mildew
+- value: energy_bills
+  label: High energy bills
+- value: no_issues
+  label: No issues, just want a change
+- value: other
+  label: Other
+

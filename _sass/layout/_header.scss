@@ -1,0 +1,56 @@
+// Header styles
+header {
+  @include glass-dark;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-header;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+  .container {
+    @include flex(row, space-between, center);
+    padding-top: $spacing-medium;
+    padding-bottom: $spacing-medium;
+  }
+  
+  .site-logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, color(primary), color(secondary), color(accent));
+  }
+  
+  .nav-contact {
+    @include flex(row, center, center);
+    gap: $spacing-large;
+    
+    .phone-link {
+      @include flex(row, center, center);
+      gap: $spacing-small;
+      color: color-alpha(foreground, 0.9);
+      
+      &:hover {
+        color: color(foreground);
+      }
+      
+      @include respond-to('medium') {
+        display: flex;
+      }
+      
+      display: none;
+    }
+    
+    .quote-button {
+      @extend .neon-button;
+      padding: $spacing-small $spacing-large;
+      border-radius: 0.5rem;
+      
+      span {
+        position: relative;
+        z-index: 10;
+        font-weight: 500;
+      }
+    }
+  }
+}
+

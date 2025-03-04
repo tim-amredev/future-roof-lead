@@ -1,0 +1,14 @@
+# Preferred contact method options
+- value: phone
+  label: Phone call
+  icon: phone
+- value: email
+  label: Email
+  icon: mail
+- value: text
+  label: Text message
+  icon: message-square
+- value: inperson
+  label: In-person consultation
+  icon: home
+

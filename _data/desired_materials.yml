@@ -1,0 +1,38 @@
+# Desired new roofing material options
+- value: asphalt
+  label: Asphalt shingles
+  image: /assets/images/materials/asphalt.jpg
+- value: architectural
+  label: Architectural/dimensional shingles
+  image: /assets/images/materials/architectural.jpg
+- value: metal_seam
+  label: Metal roofing (standing seam)
+  image: /assets/images/materials/metal_seam.jpg
+- value: metal_shingles
+  label: Metal roofing (metal shingles)
+  image: /assets/images/materials/metal_shingles.jpg
+- value: tile
+  label: Clay or concrete tiles
+  image: /assets/images/materials/tile.jpg
+- value: slate
+  label: Slate
+  image: /assets/images/materials/slate.jpg
+- value: wood
+  label: Wood shingles or shakes
+  image: /assets/images/materials/wood.jpg
+- value: solar
+  label: Solar roofing/solar tiles
+  image: /assets/images/materials/solar.jpg
+- value: green
+  label: Green/living roof
+  image: /assets/images/materials/green.jpg
+- value: flat
+  label: Flat roof systems
+  image: /assets/images/materials/flat.jpg
+- value: other
+  label: Other
+  image: /assets/images/materials/other.jpg
+- value: unsure
+  label: Unsure/need recommendations
+  image: /assets/images/materials/unsure.jpg
+

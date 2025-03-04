@@ -1,0 +1,12 @@
+# Project priority factors ranking options
+- id: cost
+  label: Cost
+- id: durability
+  label: Durability/longevity
+- id: appearance
+  label: Appearance/aesthetics
+- id: energy
+  label: Energy efficiency
+- id: eco
+  label: Eco-friendliness
+

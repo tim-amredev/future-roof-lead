@@ -1,0 +1,44 @@
+# Material prices and lifespans
+materials:
+  3-tab-asphalt:
+    price: 4.5
+    lifespan: 15-20
+  architectural-shingles:
+    price: 6.5
+    lifespan: 25-30
+  metal-standing-seam:
+    price: 12
+    lifespan: 40-50
+  metal-shingles:
+    price: 10
+    lifespan: 30-40
+  concrete-tile:
+    price: 12
+    lifespan: 50+
+  clay-tile:
+    price: 15
+    lifespan: 50+
+  slate:
+    price: 20
+    lifespan: 75+
+  wood-shakes:
+    price: 9
+    lifespan: 20-25
+
+# Multipliers for different factors
+multipliers:
+  complexity:
+    simple: 1
+    moderate: 1.2
+    complex: 1.4
+  pitch:
+    low: 1
+    medium: 1.2
+    steep: 1.4
+    very-steep: 1.6
+  location:
+    rural: 0.9
+    suburban: 1
+    urban: 1.15
+    high-cost: 1.3
+
