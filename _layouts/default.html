@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,89 +8,44 @@
   {% seo %}
   
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#0ea5e9">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#0ea5e9">
   <meta name="msapplication-TileColor" content="#0ea5e9">
   <meta name="theme-color" content="#0f172a">
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Styles - Including both for reliability -->
-  <link rel="stylesheet" href="/assets/css/basic.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/main.css">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="/feed.xml">
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ site.title }}",
-    "url": "{{ site.url }}",
-    "logo": "{{ site.url }}{{ site.logo }}",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "{{ site.phone }}",
-      "contactType": "customer service",
-      "availableLanguage": "English"
-    },
-    "sameAs": [
-      "https://facebook.com/instantroofing",
-      "https://twitter.com/instantroofing",
-      "https://instagram.com/instantroofing",
-      "https://linkedin.com/company/instant-roofing"
-    ]
-  }
-  </script>
-  
-  <style>
-    /* Critical CSS to ensure basic styling works regardless of external files */
-    body {
-      font-family: 'Space Grotesk', sans-serif;
-      background-color: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.5;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    a {
-      color: #0ea5e9;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="feed.xml">
 </head>
-<body>
+<body class="min-h-screen bg-background text-foreground antialiased">
   <div class="relative">
     <!-- Ambient background gradient -->
     <div class="fixed inset-0 bg-gradient-to-br from-background via-background to-primary/5 -z-10"></div>
 
     {% include header.html %}
-    <main>{{ content }}</main>
+    
+    <main class="container mx-auto px-4 py-12">
+      {{ content }}
+    </main>
+    
     {% include footer.html %}
-    {% include netlify-forms.html %}
   </div>
 
-  <script src="/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
   {% if page.js %}
-  <script src="/assets/js/{{ page.js }}.js"></script>
+  <script src="assets/js/{{ page.js }}.js"></script>
   {% endif %}
-  
-  <!-- Google Analytics or other analytics code can go here -->
 </body>
 </html>
 
