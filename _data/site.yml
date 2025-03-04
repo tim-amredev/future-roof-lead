@@ -1,0 +1,27 @@
+# Site information
+name: Instant Roofing
+tagline: Advanced Roofing Solutions
+description: Experience the future of roofing with instant, AI-powered quotes for roof installation, repair, and replacement. Professional roofing services with cutting-edge technology.
+phone: (800) 555-1234
+email: info@instantroofing.com
+address: 123 Innovation Way, Future City, FC 90210
+
+# Social media
+social:
+  twitter: instantroofing
+  facebook: instantroofing
+  instagram: instantroofing
+  linkedin: instant-roofing
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Get a Quote
+    url: /quote/
+  - title: Cost Calculator
+    url: /calculator/
+  - title: Our Technology
+    url: /technology/
+  - title: About Us
+    url: /about/
