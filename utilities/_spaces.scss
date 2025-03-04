@@ -1,0 +1,33 @@
+// Spacing utilities
+.m-0 { margin: 0; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mt-1 { margin-top: $spacing-small * 0.5; }
+.mt-2 { margin-top: $spacing-small; }
+.mt-3 { margin-top: $spacing-medium * 0.75; }
+.mt-4 { margin-top: $spacing-medium; }
+.mt-6 { margin-top: $spacing-large; }
+.mt-8 { margin-top: $spacing-xlarge; }
+.mt-12 { margin-top: $spacing-xxlarge; }
+
+.mb-1 { margin-bottom: $spacing-small * 0.5; }
+.mb-2 { margin-bottom: $spacing-small; }
+.mb-3 { margin-bottom: $spacing-medium * 0.75; }
+.mb-4 { margin-bottom: $spacing-medium; }
+.mb-6 { margin-bottom: $spacing-large; }
+.mb-8 { margin-bottom: $spacing-xlarge; }
+.mb-12 { margin-bottom: $spacing-xxlarge; }
+
+.p-4 { padding: $spacing-medium; }
+.p-6 { padding: $spacing-large; }
+.p-8 { padding: $spacing-xlarge; }
+.px-4 { padding-left: $spacing-medium; padding-right: $spacing-medium; }
+.py-4 { padding-top: $spacing-medium; padding-bottom: $spacing-medium; }
+.py-12 { padding-top: $spacing-xxlarge; padding-bottom: $spacing-xxlarge; }
+.py-16 { padding-top: $spacing-xxlarge * 1.33; padding-bottom: $spacing-xxlarge * 1.33; }
+.py-20 { padding-top: $spacing-xxlarge * 1.67; padding-bottom: $spacing-xxlarge * 1.67; }
+.pt-8 { padding-top: $spacing-xlarge; }
+
+.space-y-2 > * + * { margin-top: $spacing-small; }
+.space-y-4 > * + * { margin-top: $spacing-medium; }
+.space-y-6 > * + * { margin-top: $spacing-large; }
+.space-y-8 > * + * { margin-top: $spacing-xlarge; }
