@@ -1,0 +1,35 @@
+// Error page styles
+.error-page {
+  position: relative;
+  
+  .card-future {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        color(primary), 
+        color(secondary), 
+        color(accent), 
+        transparent
+      );
+      animation: scanline 3s linear infinite;
+    }
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
