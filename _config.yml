@@ -1,28 +1,38 @@
 # Site settings
-title: Instant Roofing
-description: Advanced roofing solutions powered by cutting-edge technology
-baseurl: "/future-roof-lead" # the subpath of your site, e.g. /blog
-url: "https://tim-amredev.github.io" # the base hostname & protocol for your site
+title: Instant Roofing Prices
+tagline: Advanced Roofing Solutions
+description: Experience the future of roofing with instant, AI-powered quotes for roof installation, repair, and replacement. Professional roofing services with cutting-edge technology.
+url: "https://tim-amredev.github.io"
+baseurl: "/future-roof-lead"
+lang: en
+timezone: America/New_York
 
 # Build settings
 markdown: kramdown
 permalink: pretty
-sass:
-  style: compressed
 
-# SEO settings
-logo: /assets/images/logo.png
-social:
-  twitter: instantroofing
-  facebook: instantroofing
-  instagram: instantroofing
-  linkedin: instant-roofing
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
 
-# Contact info
-phone: "(555) 123-4567"
-email: "tim@americanremodeling.net"
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "default"
+      permalink: /:basename/
 
-# Exclude from processing
+# Include/Exclude
+include:
+  - _pages
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -30,12 +40,21 @@ exclude:
   - vendor
   - .sass-cache
   - .jekyll-cache
-  - .git
-  - .gitignore
+  - gemfiles
   - README.md
   - package.json
   - package-lock.json
+  - yarn.lock
+  - CNAME
+  - LICENSE
+  - .git
   - scripts
   - "*.tsx"
   - "*.ts"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
