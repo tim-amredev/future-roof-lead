@@ -1,4 +1,3 @@
-// Quote form functionality
 document.addEventListener("DOMContentLoaded", () => {
   // Form steps configuration
   const totalSteps = 5
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressRing = document.querySelector(".progress-ring")
   const progressText = document.querySelector(".progress-text")
   const stepIndicators = document.querySelectorAll(".progress-step")
-  const achievementBadges = document.querySelectorAll(".achievement-badge")
 
   // Initialize the form
   if (form) {
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initializeForm() {
-    // Show first step
     showStep(currentStep)
     updateProgressRing()
 
@@ -56,10 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (errorElement) {
         errorElement.style.display = "none"
       }
+      return true
     } else {
       if (errorElement) {
         errorElement.style.display = "block"
       }
+      return false
     }
   }
 
@@ -67,13 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentFormStep = document.querySelector(`.form-step[data-step="${step}"]`)
     if (!currentFormStep) return true
 
-    const requiredFields = currentFormStep.querySelectorAll("[required]")
     let isValid = true
+    const requiredFields = currentFormStep.querySelectorAll("[required]")
+    const radioGroups = new Set()
 
     requiredFields.forEach((field) => {
-      if (!field.checkValidity()) {
+      if (field.type === "radio") {
+        radioGroups.add(field.name)
+      } else if (!validateField({ target: field })) {
         isValid = false
-        const errorElement = document.getElementById(`${field.name}-error`)
+      }
+    })
+
+    // Validate radio groups
+    radioGroups.forEach((groupName) => {
+      const checkedRadio = currentFormStep.querySelector(`input[name="${groupName}"]:checked`)
+      if (!checkedRadio) {
+        isValid = false
+        const errorElement = document.getElementById(`${groupName}-error`)
         if (errorElement) {
           errorElement.style.display = "block"
         }
@@ -84,12 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showStep(step) {
-    // Hide all steps
     formSteps.forEach((formStep) => {
       formStep.style.display = "none"
     })
 
-    // Show current step
     const currentFormStep = document.querySelector(`.form-step[data-step="${step}"]`)
     if (currentFormStep) {
       currentFormStep.style.display = "block"
@@ -110,27 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.style.display = "none"
     }
 
-    // Update step indicators
+    // Update progress indicators
+    updateStepIndicators(step)
+  }
+
+  function updateStepIndicators(currentStep) {
     stepIndicators.forEach((indicator) => {
       const indicatorStep = Number.parseInt(indicator.dataset.step)
 
+      indicator.classList.remove("completed", "current", "bg-primary", "text-background", "ring-2", "ring-primary")
+
       if (completedSteps.includes(indicatorStep)) {
-        indicator.classList.add("completed")
-        indicator.classList.add("bg-primary")
-        indicator.classList.add("text-background")
-      } else if (indicatorStep === step) {
-        indicator.classList.add("ring-2")
-        indicator.classList.add("ring-primary")
-        indicator.classList.add("ring-offset-2")
-        indicator.classList.add("ring-offset-background")
-      } else {
-        indicator.classList.remove("completed")
-        indicator.classList.remove("bg-primary")
-        indicator.classList.remove("text-background")
-        indicator.classList.remove("ring-2")
-        indicator.classList.remove("ring-primary")
-        indicator.classList.remove("ring-offset-2")
-        indicator.classList.remove("ring-offset-background")
+        indicator.classList.add("completed", "bg-primary", "text-background")
+      } else if (indicatorStep === currentStep) {
+        indicator.classList.add("current", "ring-2", "ring-primary")
       }
     })
   }
@@ -139,11 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentStep < totalSteps && validateStep(currentStep)) {
       if (!completedSteps.includes(currentStep)) {
         completedSteps.push(currentStep)
-        updateAchievements()
         updateProgressRing()
-        celebrateCompletion()
       }
-
       currentStep++
       showStep(currentStep)
       window.scrollTo({ top: 0, behavior: "smooth" })
@@ -178,94 +176,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function updateAchievements() {
-    achievementBadges.forEach((badge) => {
-      const badgeStep = Number.parseInt(badge.dataset.step)
-
-      if (completedSteps.includes(badgeStep)) {
-        badge.classList.remove("opacity-50")
-        badge.classList.add("achievement-unlock")
-
-        const icon = badge.querySelector("svg")
-        if (icon) {
-          icon.classList.remove("text-white/20")
-          icon.classList.add("text-primary")
-        }
-
-        const iconContainer = badge.querySelector(".w-12.h-12")
-        if (iconContainer) {
-          iconContainer.classList.remove("bg-white/5")
-          iconContainer.classList.add("bg-primary/20")
-        }
-
-        const title = badge.querySelector("h3")
-        if (title) {
-          title.classList.add(
-            "text-transparent",
-            "bg-clip-text",
-            "bg-gradient-to-r",
-            "from-primary",
-            "via-secondary",
-            "to-accent",
-          )
-        }
-
-        const description = badge.querySelector("p")
-        if (description) {
-          description.classList.remove("text-foreground/40")
-          description.classList.add("text-foreground/80")
-        }
-      }
-    })
-  }
-
-  function celebrateCompletion() {
-    // Create confetti effect
-    const confettiContainer = document.createElement("div")
-    confettiContainer.className = "confetti-container fixed inset-0 pointer-events-none z-50"
-    document.body.appendChild(confettiContainer)
-
-    for (let i = 0; i < 100; i++) {
-      const particle = document.createElement("div")
-      particle.className = "confetti-particle absolute"
-      particle.style.left = `${Math.random() * 100}%`
-      particle.style.top = `${Math.random() * 100}%`
-      particle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-      particle.style.width = `${Math.random() * 10 + 5}px`
-      particle.style.height = `${Math.random() * 10 + 5}px`
-      particle.style.transform = `rotate(${Math.random() * 360}deg)`
-      particle.style.opacity = "0"
-      particle.style.animation = `confetti-fall ${Math.random() * 3 + 2}s ease-out forwards`
-      confettiContainer.appendChild(particle)
-    }
-
-    // Add animation style
-    const style = document.createElement("style")
-    style.textContent = `
-      @keyframes confetti-fall {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh) rotate(720deg);
-          opacity: 0;
-        }
-      }
-    `
-    document.head.appendChild(style)
-
-    // Remove confetti after animation
-    setTimeout(() => {
-      confettiContainer.remove()
-      style.remove()
-    }, 5000)
-  }
-
   function handleSubmit(e) {
     e.preventDefault()
 
-    // Show loading overlay
+    if (!validateStep(currentStep)) {
+      return
+    }
+
+    const formData = new FormData(form)
+
+    // Add metadata
+    formData.append("timestamp", new Date().toISOString())
+    formData.append("page_url", window.location.href)
+    formData.append("_subject", "New Roofing Quote Request")
+
+    // Show loading state
     const loadingOverlay = document.createElement("div")
     loadingOverlay.className = "fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50"
     loadingOverlay.innerHTML = `
@@ -276,19 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `
     document.body.appendChild(loadingOverlay)
 
-    // Collect all form data
-    const formData = new FormData(form)
-
-    // Add timestamp
-    formData.append("timestamp", new Date().toISOString())
-
-    // Add page URL
-    formData.append("page_url", window.location.href)
-
-    // Add form summary for email subject
-    formData.append("_subject", "New Roofing Quote Request")
-
-    // Send form data using FormSubmit
+    // Submit form
     fetch("https://formsubmit.co/tim@americanremodeling.net", {
       method: "POST",
       body: formData,
@@ -298,27 +211,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((response) => {
         if (response.ok) {
-          // Redirect to success page
-          window.location.href = "/quote/success"
+          window.location.href = `${window.location.pathname}/success`
         } else {
           throw new Error("Network response was not ok.")
         }
       })
       .catch((error) => {
         console.error("Error:", error)
-
-        // Remove loading overlay
         loadingOverlay.remove()
-
-        // Show error message
-        if (window.toast) {
-          window.toast.error({
-            title: "Error",
-            description: "There was a problem submitting your form. Please try again.",
-          })
-        } else {
-          alert("There was a problem submitting your form. Please try again.")
-        }
+        alert("There was a problem submitting your form. Please try again.")
       })
   }
 })
